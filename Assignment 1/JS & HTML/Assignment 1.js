@@ -35,16 +35,25 @@ document.write("<br>Subtraction: "+num1+"-"+num2+" = "+(num1-num2));
 document.write("<br>Multiplication: "+num1+"*"+num2+" = "+(num1*num2));
 document.write("<br>Division: "+num1+"/"+num2+" = "+(num1/num2));
 document.write("<br>Modulus: "+num1+"%"+num2+" = "+(num1%num2));
+
+
 //Part 3 - Conditional Execution
 document.write("<br>");
 document.write("<br>Part 3");
 let userAge = prompt("Enter your age: ");
 userAge = Number(userAge);
 
-while (isNaN(userAge)){//checks if the age is not NaN or a string entered into the prompt
-  userAge = prompt("Error not an age please try again: ");//askes for a number
-  userAge = Number(userAge);
+while (isNaN(userAge)||userAge<0){//checks if the age is not NaN, a string or user age is less then 0
+  if(isNaN(userAge)){
+    userAge = prompt("Error not an age please try again: ");//askes for a number
+    userAge = Number(userAge);
+  }
+  if(userAge<0){
+    userAge = prompt("Error negative age please try again: ");
+    userAge = Number(userAge);
+  }
 }
+
 if (userAge >= 18){//checks if the user's age is greate or equal to 18
   document.write("<br>You are eligible to vote!")
 } else {
@@ -57,10 +66,18 @@ document.write("<br>Part 3<br>");
 let numGreaterThanTen = prompt("Enter a number greater than 10: ");
 numGreaterThanTen = Number(numGreaterThanTen);
 
-while(isNaN(numGreaterThanTen)){
-  numGreaterThanTen = prompt("Error number is not greater than 10, please try again: ");
-  numGreaterThanTen = Number(numGreaterThanTen);
+while(isNaN(numGreaterThanTen)||numGreaterThanTen<=10){
+  if(numGreaterThanTen<=10){
+    numGreaterThanTen = prompt("Error number less then 10");
+    numGreaterThanTen = Number(numGreaterThanTen);
+  }
+  if(isNaN(numGreaterThanTen)){
+    numGreaterThanTen = prompt("Error not a number, please try again: ");
+    numGreaterThanTen = Number(numGreaterThanTen);
+  }
 }
+
+
 
 for(let i = 1; i<=10; i++){
 
